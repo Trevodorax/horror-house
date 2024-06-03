@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { Home } from "./pages/home/Home";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
 
 export const App: FC = () => {
   return (
-    <Home />
+    <RouterProvider router={router} />
   )
 }
