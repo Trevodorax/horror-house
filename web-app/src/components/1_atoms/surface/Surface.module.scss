@@ -1,0 +1,35 @@
+.default {
+  background-color: var(--color-surface-default);
+}
+
+.inversed {
+  background-color: var(--color-surface-inversed);
+}
+
+.primary {
+  background-color: var(--color-surface-primary);
+}
+
+.secondary {
+  background-color: var(--color-surface-secondary);
+}
+
+.alert {
+  background-color: var(--color-surface-alert);
+}
+
+.success {
+  background-color: var(--color-surface-success);
+}
+
+.warning {
+  background-color: var(--color-surface-warning);
+}
+
+.info {
+  background-color: var(--color-surface-info);
+}
+
+.error {
+  background-color: var(--color-surface-error);
+}

@@ -20,13 +20,11 @@ interface Props {
 }
 
 
-export const Surface: FC<Props & HTMLAttributes<HTMLDivElement>> = ({ children, background = 'default', ...props }) => {
-  console.log('PONEY', background)
-  
+export const Surface: FC<Props & HTMLAttributes<HTMLDivElement>> = ({ children, background = 'default', ...props }) => {  
   return (
     <div 
-      className={classNames(styles.surface, styles[background])}
-      {...props}
+    {...props}
+    className={classNames(props.className, styles.surface, styles[background])}
     >
       {children}
     </div>

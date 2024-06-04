@@ -25,4 +25,10 @@ describe('Surface', () => {
     render(<Surface data-testid='content' id='surface'><div /></Surface>)
     expect(screen.getByTestId('content')).toHaveAttribute('id', 'surface')
   })
+
+  test('Should handle className prop', () => {
+    render(<Surface className='test' data-testid='content'><div /></Surface>)
+    expect(screen.getByTestId('content')).toHaveClass('test')
+    expect(screen.getByTestId('content')).toHaveClass(styles.default)
+  })
 })
