@@ -1,0 +1,21 @@
+.sideBarContainer {
+  position: absolute;
+  height: 100%;
+  right: -300px;
+  width: 300px;
+
+  transition: right 0.3s ease-in-out;
+
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+  z-index: 2;
+
+  &.open {
+    right: 0
+  }
+}
+
+.sideBarSurface {
+  height: 100%;
+  width: 100%;
+}
