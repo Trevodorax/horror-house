@@ -1,10 +1,10 @@
 import { render, screen } from "@/tests/react-testing-library";
 import { describe, expect, test } from "vitest";
-import { Header } from "./Header";
+import { GlobalHeader } from "./GlobalHeader";
 
 describe("Header", () => {
 	test("should render an actual header", () => {
-		render(<Header />);
+		render(<GlobalHeader />);
 
 		expect(screen.getByRole("banner")).toBeInTheDocument();
 	});

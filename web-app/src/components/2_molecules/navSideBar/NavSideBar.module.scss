@@ -3,8 +3,6 @@
 }
 
 .linkListItem {
-  // remove li styles
-  list-style-type: none;
   width: 100%;
   height: 40px;
   background-color: var(--color-surface-default);
@@ -15,8 +13,4 @@
   &:hover {
     filter: brightness(0.95);
   }
-}
-
-.link {
-  text-decoration: none;
 }

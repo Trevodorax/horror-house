@@ -2,14 +2,14 @@ import type { FC } from "react";
 import { Outlet } from "react-router-dom";
 
 import { Surface } from "../../1_atoms/surface/Surface";
-import { Header } from "../../3_organisms/header/Header";
+import { GlobalHeader } from "../../3_organisms/globalHeader/GlobalHeader";
 
 import styles from "./GlobalLayout.module.scss";
 
 export const GlobalLayout: FC = () => {
 	return (
 		<div className={styles.globalLayoutContainer}>
-			<Header />
+			<GlobalHeader />
 			<main className={styles.mainContainer}>
 				<Surface className={styles.globalLayoutOutletContainer}>
 					<Outlet />

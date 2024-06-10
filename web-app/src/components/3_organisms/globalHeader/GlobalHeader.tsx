@@ -5,9 +5,9 @@ import { Surface } from "../../1_atoms/surface/Surface";
 import { Text } from "../../1_atoms/text/Text";
 import { Navigation } from "../navigation/Navigation";
 
-import styles from "./Header.module.scss";
+import styles from "./GlobalHeader.module.scss";
 
-export const Header: FC = () => {
+export const GlobalHeader: FC = () => {
 	return (
 		<header className={styles.headerContainer}>
 			<Surface className={styles.headerSurface}>
