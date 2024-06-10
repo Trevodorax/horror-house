@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "@/tests/react-testing-library";
 
 import { Text } from "./Text";
 import styles from "./Text.module.scss";

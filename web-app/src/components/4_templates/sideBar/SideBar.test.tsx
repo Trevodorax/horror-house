@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, test, vi } from "vitest";
+import { render, screen } from "@/tests/react-testing-library";
+import { describe, expect, test } from "vitest";
 import { SideBar } from "./SideBar";
 import styles from './SideBar.module.scss'
 

@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vitest/config";
 
@@ -7,6 +8,11 @@ export default defineConfig({
 		globals: true,
 		environment: "jsdom",
 		setupFiles: "./src/tests/setup.ts",
+	},
+	resolve: {
+		alias: [
+			{ find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) }
+		]
 	},
 	build: {
 		target: "ES2022",

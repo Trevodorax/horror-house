@@ -9,7 +9,7 @@ export const Navigation: FC = () => {
   return (
     <>
       <Button className={styles.menuButton} variant="transparent" onClick={() => setIsOpen((open) => !open)}>
-        <MenuIcon open={false} className={styles.menuIcon} />
+        <MenuIcon open={open} className={styles.menuIcon} />
       </Button>
       <NavSideBar open={open} onClose={() => setIsOpen(false)} />
     </>   
