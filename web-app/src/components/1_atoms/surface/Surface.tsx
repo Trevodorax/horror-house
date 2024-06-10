@@ -12,7 +12,8 @@ type surfaceBackground =
 	| "success"
 	| "warning"
 	| "info"
-	| "error";
+	| "error"
+	| "transparent";
 
 interface Props {
 	children: ReactNode;
