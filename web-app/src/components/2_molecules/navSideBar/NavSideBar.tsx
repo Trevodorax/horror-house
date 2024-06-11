@@ -1,3 +1,4 @@
+import { navItems } from "@/router";
 import type { FC } from "react";
 import { SideBar } from "../../4_templates/sideBar/SideBar";
 import { LinkListItem } from "../linkListItem/LinkListItem";
@@ -7,21 +8,6 @@ interface Props {
   open: boolean;
   onClose: () => void;
 }
-
-const navItems = [
-  {
-    label: "Home",
-    path: "/"
-  },
-  {
-    label: "About",
-    path: "/about"
-  },
-  {
-    label: "Contact",
-    path: "/contact"
-  }
-]
 
 export const NavSideBar: FC<Props> = ({open, onClose}) => {
   return (

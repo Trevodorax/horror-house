@@ -1,9 +1,11 @@
 .globalLayoutContainer {
   height: 100%;
   width: 100%;
+  max-width: 100vw;
 }
 
 .globalLayoutOutletContainer {
+  padding: 32px;
   height: 100%;
   width: 100%;
 }
