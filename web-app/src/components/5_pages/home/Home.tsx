@@ -69,7 +69,7 @@ export const Home: FC = () => {
 		<Surface className={styles.homeContainer}>
 			<ContentWithImageSection
 				className={styles.firstSection}
-				imageUrl="https://cdn.discordapp.com/attachments/1024915554672316489/1250100416478318633/Screenshot_2024-06-11_at_16.51.16.png?ex=6669b63d&is=666864bd&hm=d21c303bc6c1cb93e28b5cdd673feb4a10a7d01d70d3e1119187fc4bc94d0759&"
+				imageUrl="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718150400&semt=ais_user"
 			>
 				<Surface background="transparent" className={styles.content}>
 					<Text type="simpleText">

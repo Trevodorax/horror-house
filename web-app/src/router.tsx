@@ -9,13 +9,21 @@ export const navItems = [
 		path: "/",
 	},
 	{
-		label: "About",
-		path: "/about",
+		label: "CGU",
+		path: "/cgu",
 	},
 	{
 		label: "Contact",
 		path: "/contact",
 	},
+	{
+		label: "Book",
+		path: "/booking",
+	},
+	{
+		label: "Sessions",
+		path: "/sessions",
+	}
 ];
 
 export const router = createBrowserRouter([
@@ -27,6 +35,34 @@ export const router = createBrowserRouter([
 				path: "",
 				element: <Home />,
 			},
+			{
+				path: "cgu",
+				element: <div>CGU</div>,
+			},
+			{
+				path: "contact",
+				element: <div>Contact</div>,
+			},
+			{
+				path: "sessions",
+				element: <div>Sessions</div>,
+				children: [
+					{
+						path: ":id",
+						element: <div>Session</div>,
+					}
+				]
+			},
+			{
+				path: "booking",
+				element: <div>Booking</div>,
+				children: [
+					{
+						path: ":id",
+						element: <div>Booking</div>,
+					}
+				]
+			}
 		],
 	},
 ]);
