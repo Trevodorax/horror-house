@@ -1,0 +1,11 @@
+#root {
+  --color-text-default: #000000;
+  --color-text-inversed: #FFFFFF;
+  --color-text-primary: #2196f3;
+  --color-text-secondary: #9e9e9e;
+  --color-text-alert: #ff9800;
+  --color-text-success: #4caf50;
+  --color-text-warning: #ffeb3b;
+  --color-text-info: #00bcd4;
+  --color-text-error: #f44336;
+}

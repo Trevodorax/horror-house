@@ -1,25 +1,37 @@
 {
-  "name": "horror-house-web-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "tsc && vite build"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@types/react": "^18.3.2",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react-swc": "^3.7.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11"
-  },
-  "devDependencies": {
-    "sass": "^1.77.2"
-  }
+	"name": "horror-house-web-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"start": "vite",
+		"test": "vitest",
+		"build": "tsc && vite build",
+		"lint": "npx @biomejs/biome check .",
+		"lint:fix": "npx @biomejs/biome check . --apply"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@vitejs/plugin-react-swc": "^3.7.0",
+		"classnames": "^2.5.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-router-dom": "^6.23.1",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.11"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.7.3",
+		"@testing-library/dom": "^10.1.0",
+		"@testing-library/jest-dom": "^6.4.5",
+		"@testing-library/react": "^16.0.0",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"jsdom": "^24.1.0",
+		"sass": "^1.77.2",
+		"vitest": "^1.6.0"
+	}
 }

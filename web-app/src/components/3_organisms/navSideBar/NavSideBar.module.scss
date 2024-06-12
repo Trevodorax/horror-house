@@ -1,0 +1,17 @@
+.navList {
+  margin: 0;
+  padding: 16px;;
+}
+
+.linkListItem {
+  width: 100%;
+  height: 40px;
+  background-color: var(--color-surface-default);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+}

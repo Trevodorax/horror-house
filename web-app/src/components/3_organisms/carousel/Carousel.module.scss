@@ -1,0 +1,29 @@
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.carouselBackground {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.button {
+  position: absolute;
+  background-color: transparent;
+  height: 100%;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}
+
+.prevButton {
+  left: 0;
+}
+
+.nextButton {
+  right: 0;
+}

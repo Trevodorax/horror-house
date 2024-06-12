@@ -1,0 +1,46 @@
+.contentContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .image {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    width: 30%;
+
+    animation: borderRadiusAnimation 3s infinite alternate-reverse;
+
+    @media (max-width: 500px) {
+      & {
+        display: none;
+      }
+    }
+  }
+
+  .content {
+    padding: 16px;
+    width: 50%;
+
+    @media (max-width: 500px) {
+      & {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.sectionTitle {
+  padding-inline-start: 8px;
+}
+
+@keyframes borderRadiusAnimation {
+  0% {
+    border-radius: 50% 50% 67% 33% / 50% 44% 56% 50% ;
+  }
+  50% {
+    border-radius: 59% 41% 60% 40% / 45% 47% 53% 55%;
+  }
+  100% {
+    border-radius: 64% 36% 65% 35% / 51% 52% 48% 49%;
+  }
+}

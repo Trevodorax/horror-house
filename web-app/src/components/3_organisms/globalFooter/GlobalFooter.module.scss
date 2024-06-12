@@ -1,0 +1,58 @@
+.footerContainer {
+  height: 160px;
+  width: 100%;
+  display: flex;
+}
+
+.footerSurface {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 24px;
+}
+
+.footerNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .link {
+    text-underline-offset: 4px;
+    color: var(--color-text-default);
+  
+    transition: text-underline-offset 0.5s ease;
+  
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      font-weight: 600;
+    }
+  }
+}
+
+.copyrightContainer {
+  align-self: center;
+  text-align: center;
+}
+
+.socialsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .instagramIcon, .twitterIcon {
+    color: var(--color-text-default);
+    transition: color 0.3s ease;
+  }
+
+  .instagramIcon:hover {
+    color: #E6009E;
+  }
+  
+  .twitterIcon:hover {
+    color: #1C9BEF
+  }
+}
+

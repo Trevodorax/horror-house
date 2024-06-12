@@ -1,0 +1,42 @@
+.textWrapper {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.17rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+
+  &.textVariant-default {
+    color: var(--color-text-default);
+  }
+  &.textVariant-inversed {
+    color: var(--color-text-inversed);
+  }
+  &.textVariant-primary {
+    color: var(--color-text-primary);
+  }
+  &.textVariant-secondary {
+    color: var(--color-text-secondary);
+  }
+  &.textVariant-alert {
+    color: var(--color-text-alert);
+  }
+  &.textVariant-success {
+    color: var(--color-text-success);
+  }
+  &.textVariant-warning {
+    color: var(--color-text-warning);
+  }
+  &.textVariant-info {
+    color: var(--color-text-info);
+  }
+  &.textVariant-error {
+    color: var(--color-text-error);
+  }
+}
