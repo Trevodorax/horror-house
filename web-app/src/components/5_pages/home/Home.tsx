@@ -1,6 +1,7 @@
 import type { FC } from "react";
 
 import { Text } from "@/components/1_atoms/text/Text";
+import { Button } from "@/components/2_molecules/button/Button";
 import { Carousel } from "@/components/3_organisms/carousel/Carousel";
 import { SessionInfo } from "@/components/3_organisms/sessionInfo/SessionInfo";
 import { AlternatingImageTextsSection } from "@/components/4_templates/alternatingImageTextsSection/AlternatingImageTextsSection";
@@ -68,9 +69,15 @@ export const Home: FC = () => {
 		<Surface className={styles.homeContainer}>
 			<ContentWithImageSection
 				className={styles.firstSection}
-				content={projectDescription.content}
 				imageUrl="https://cdn.discordapp.com/attachments/1024915554672316489/1250100416478318633/Screenshot_2024-06-11_at_16.51.16.png?ex=6669b63d&is=666864bd&hm=d21c303bc6c1cb93e28b5cdd673feb4a10a7d01d70d3e1119187fc4bc94d0759&"
-			/>
+			>
+				<Surface background="transparent" className={styles.content}>
+					<Text type="simpleText">
+						{projectDescription.content}
+					</Text>
+					<Button className={styles.button} variant="primary">Book Now</Button>
+				</Surface>
+			</ContentWithImageSection>
 			<Surface background={"secondary"}>
 				<Text className={styles.sectionHeading} type="sectionHeading">
 					Meet the Team
