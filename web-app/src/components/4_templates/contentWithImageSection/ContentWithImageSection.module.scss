@@ -35,9 +35,12 @@
 
 @keyframes borderRadiusAnimation {
   0% {
-      border-radius: 45% 55% 48% 52% / 42% 62% 38% 58%;
+    border-radius: 50% 50% 67% 33% / 50% 44% 56% 50% ;
+  }
+  50% {
+    border-radius: 59% 41% 60% 40% / 45% 47% 53% 55%;
   }
   100% {
-      border-radius: 50% 50% 54% 48% / 55% 54% 45% 55%;
+    border-radius: 64% 36% 65% 35% / 51% 52% 48% 49%;
   }
 }

@@ -4,7 +4,7 @@ import type { FC } from "react";
 import { Surface } from "@/components/1_atoms/surface/Surface";
 import { Text } from "@/components/1_atoms/text/Text";
 
-import styles from "./TextWithImageSection.module.scss";
+import styles from "./ContentWithImageSection.module.scss";
 
 interface Props {
 	content: string;
@@ -12,7 +12,7 @@ interface Props {
 	className?: string;
 }
 
-export const TextWithImageSection: FC<Props> = ({
+export const ContentWithImageSection: FC<Props> = ({
 	content,
 	className,
 	imageUrl,

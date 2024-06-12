@@ -4,7 +4,9 @@ import { Text } from "@/components/1_atoms/text/Text";
 import { Carousel } from "@/components/3_organisms/carousel/Carousel";
 import { SessionInfo } from "@/components/3_organisms/sessionInfo/SessionInfo";
 import { AlternatingImageTextsSection } from "@/components/4_templates/alternatingImageTextsSection/AlternatingImageTextsSection";
-import { TextWithImageSection } from "@/components/4_templates/textWithImageSection/TextWithImageSection";
+import { ContentWithImageSection } from "@/components/4_templates/contentWithImageSection/ContentWithImageSection";
+import { useAnimateOnVisible } from "@/hooks/useAnimateOnVisible";
+import classNames from "classnames";
 import { Surface } from "../../1_atoms/surface/Surface";
 import styles from "./Home.module.scss";
 
@@ -58,9 +60,13 @@ const teams = [
 ];
 
 export const Home: FC = () => {
+	const [ref, isVisible] = useAnimateOnVisible({
+    threshold: 0.1,
+  });
+
 	return (
 		<Surface className={styles.homeContainer}>
-			<TextWithImageSection
+			<ContentWithImageSection
 				className={styles.firstSection}
 				content={projectDescription.content}
 				imageUrl="https://cdn.discordapp.com/attachments/1024915554672316489/1250100416478318633/Screenshot_2024-06-11_at_16.51.16.png?ex=6669b63d&is=666864bd&hm=d21c303bc6c1cb93e28b5cdd673feb4a10a7d01d70d3e1119187fc4bc94d0759&"
@@ -72,12 +78,14 @@ export const Home: FC = () => {
 				<AlternatingImageTextsSection imageTexts={teams} />
 			</Surface>
 			<Surface>
-				<Carousel
-					className={styles.carousel}
-					items={escapeGameSessions.map((session, index) => (
-						<SessionInfo key={`${session.title}-${index}`} session={session} />
-					))}
-				/>
+				<div ref={ref} className={classNames({[styles.animating]: isVisible})}>
+					<Carousel
+						className={classNames(styles.carousel)}
+						items={escapeGameSessions.map((session, index) => (
+							<SessionInfo key={`${session.title}-${index}`} session={session} />
+						))}
+					/>
+				</div>
 			</Surface>
 		</Surface>
 	);

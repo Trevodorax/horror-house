@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { Surface } from "../../1_atoms/surface/Surface";
 import { GlobalHeader } from "../../3_organisms/globalHeader/GlobalHeader";
 
+import { GlobalFooter } from "@/components/3_organisms/globalFooter/GlobalFooter";
 import styles from "./GlobalLayout.module.scss";
 
 export const GlobalLayout: FC = () => {
@@ -15,7 +16,7 @@ export const GlobalLayout: FC = () => {
 					<Outlet />
 				</Surface>
 			</main>
-			<footer />
+			<GlobalFooter />
 		</div>
 	);
 };

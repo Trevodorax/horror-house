@@ -1,11 +1,11 @@
 import { render, screen } from "@/tests/react-testing-library";
 import { describe, expect, test } from "vitest";
-import { TextWithImageSection } from "./TextWithImageSection";
+import { ContentWithImageSection } from "./ContentWithImageSection";
 
-describe("TextWithImageSection", () => {
+describe("ContentWithImageSection", () => {
 	test("Should display given text", () => {
 		render(
-			<TextWithImageSection content="test content" imageUrl="test.image.jpg" />,
+			<ContentWithImageSection content="test content" imageUrl="test.image.jpg" />,
 		);
 
 		expect(screen.getByText("test content")).toBeInTheDocument();
@@ -13,7 +13,7 @@ describe("TextWithImageSection", () => {
 
 	test("Should display given image", () => {
 		render(
-			<TextWithImageSection content="test content" imageUrl="test.image.jpg" />,
+			<ContentWithImageSection content="test content" imageUrl="test.image.jpg" />,
 		);
 
 		expect(screen.getByRole("img")).toBeInTheDocument();
