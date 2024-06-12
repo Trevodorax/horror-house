@@ -24,12 +24,9 @@ export const Button: FC<Props & HTMLAttributes<HTMLButtonElement>> = ({
 				styles[`variant-${variant}`],
 			)}
 		>
-			<Surface 
-        background={variant}
-        className={styles.buttonSurface}
-      >
-        {props.children}
-      </Surface>
+			<Surface background={variant} className={styles.buttonSurface}>
+				{props.children}
+			</Surface>
 		</button>
 	);
 };

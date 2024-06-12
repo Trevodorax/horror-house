@@ -3,7 +3,7 @@ import { describe, test } from "vitest";
 import { Home } from "./Home";
 
 describe("Home", () => {
-  test("Should not crash", () => {
-    render(<Home />);
-  });
-})
+	test("Should not crash", () => {
+		render(<Home />);
+	});
+});

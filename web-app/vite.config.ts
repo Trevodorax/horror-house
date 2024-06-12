@@ -1,4 +1,4 @@
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from "vitest/config";
 
@@ -11,8 +11,11 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: [
-			{ find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) }
-		]
+			{
+				find: "@",
+				replacement: fileURLToPath(new URL("./src", import.meta.url)),
+			},
+		],
 	},
 	build: {
 		target: "ES2022",
