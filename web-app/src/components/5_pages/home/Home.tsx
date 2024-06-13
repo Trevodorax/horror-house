@@ -62,8 +62,8 @@ const teams = [
 
 export const Home: FC = () => {
 	const [ref, isVisible] = useAnimateOnVisible({
-    threshold: 0.1,
-  });
+		threshold: 0.1,
+	});
 
 	return (
 		<Surface className={styles.homeContainer}>
@@ -72,10 +72,10 @@ export const Home: FC = () => {
 				imageUrl="https://img.freepik.com/free-photo/cute-domestic-kitten-sits-window-staring-outside-generative-ai_188544-12519.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718150400&semt=ais_user"
 			>
 				<Surface background="transparent" className={styles.content}>
-					<Text type="simpleText">
-						{projectDescription.content}
-					</Text>
-					<Button className={styles.button} variant="primary">Book Now</Button>
+					<Text type="simpleText">{projectDescription.content}</Text>
+					<Button className={styles.button} variant="primary">
+						Book Now
+					</Button>
 				</Surface>
 			</ContentWithImageSection>
 			<Surface background={"secondary"}>
@@ -85,11 +85,17 @@ export const Home: FC = () => {
 				<AlternatingImageTextsSection imageTexts={teams} />
 			</Surface>
 			<Surface>
-				<div ref={ref} className={classNames({[styles.animating]: isVisible})}>
+				<div
+					ref={ref}
+					className={classNames({ [styles.animating]: isVisible })}
+				>
 					<Carousel
 						className={classNames(styles.carousel)}
 						items={escapeGameSessions.map((session, index) => (
-							<SessionInfo key={`${session.title}-${index}`} session={session} />
+							<SessionInfo
+								key={`${session.title}-${index}`}
+								session={session}
+							/>
 						))}
 					/>
 				</div>

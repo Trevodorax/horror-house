@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import type { FC, HTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, FC } from "react";
 
 import { Surface } from "../../1_atoms/surface/Surface";
 
@@ -11,7 +11,7 @@ interface Props {
 	variant?: buttonVariant;
 }
 
-export const Button: FC<Props & HTMLAttributes<HTMLButtonElement>> = ({
+export const Button: FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ({
 	variant = "default",
 	...props
 }) => {
