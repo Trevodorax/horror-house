@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import { GlobalLayout } from "./components/4_templates/globalLayout/GlobalLayout";
+import { Cgu } from "./components/5_pages/cgu/Cgu";
+import { Contact } from "./components/5_pages/contact/Contact";
 import { Home } from "./components/5_pages/home/Home";
 
 export const navItems = [
@@ -23,7 +25,7 @@ export const navItems = [
 	{
 		label: "Sessions",
 		path: "/sessions",
-	}
+	},
 ];
 
 export const router = createBrowserRouter([
@@ -37,11 +39,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "cgu",
-				element: <div>CGU</div>,
+				element: <Cgu />,
 			},
 			{
 				path: "contact",
-				element: <div>Contact</div>,
+				element: <Contact />,
 			},
 			{
 				path: "sessions",
@@ -50,8 +52,8 @@ export const router = createBrowserRouter([
 					{
 						path: ":id",
 						element: <div>Session</div>,
-					}
-				]
+					},
+				],
 			},
 			{
 				path: "booking",
@@ -60,9 +62,9 @@ export const router = createBrowserRouter([
 					{
 						path: ":id",
 						element: <div>Booking</div>,
-					}
-				]
-			}
+					},
+				],
+			},
 		],
 	},
 ]);

@@ -30,7 +30,7 @@ export const Carousel: FC<Props> = ({ items, className }) => {
 					variant="transparent"
 					className={classNames(styles.button, styles.prevButton)}
 					onClick={decrementIndex}
-          aria-label="previous item"
+					aria-label="previous item"
 				>
 					<RightCaretIcon className={styles.flipped} />
 				</Button>
@@ -39,7 +39,7 @@ export const Carousel: FC<Props> = ({ items, className }) => {
 					variant="transparent"
 					className={classNames(styles.button, styles.nextButton)}
 					onClick={incrementIndex}
-          aria-label="next item"
+					aria-label="next item"
 				>
 					<RightCaretIcon />
 				</Button>

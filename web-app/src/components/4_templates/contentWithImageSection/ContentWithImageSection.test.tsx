@@ -5,7 +5,9 @@ import { ContentWithImageSection } from "./ContentWithImageSection";
 describe("ContentWithImageSection", () => {
 	test("Should display given text", () => {
 		render(
-			<ContentWithImageSection imageUrl="test.image.jpg">test content</ContentWithImageSection>,
+			<ContentWithImageSection imageUrl="test.image.jpg">
+				test content
+			</ContentWithImageSection>,
 		);
 
 		expect(screen.getByText("test content")).toBeInTheDocument();
@@ -13,7 +15,9 @@ describe("ContentWithImageSection", () => {
 
 	test("Should display given image", () => {
 		render(
-			<ContentWithImageSection imageUrl="test.image.jpg" >Text content</ContentWithImageSection>,
+			<ContentWithImageSection imageUrl="test.image.jpg">
+				Text content
+			</ContentWithImageSection>,
 		);
 
 		expect(screen.getByRole("img")).toBeInTheDocument();

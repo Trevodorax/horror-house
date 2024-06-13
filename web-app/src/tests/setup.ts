@@ -5,17 +5,17 @@ import { afterEach, expect } from "vitest";
 expect.extend(matchers);
 
 global.IntersectionObserver = class IntersectionObserver {
-  observe() {
-    return null;
-  }
+	observe() {
+		return null;
+	}
 
-  disconnect() {
-    return null;
-  };
+	disconnect() {
+		return null;
+	}
 
-  unobserve() {
-    return null;
-  }
+	unobserve() {
+		return null;
+	}
 
 	takeRecords() {
 		return [];

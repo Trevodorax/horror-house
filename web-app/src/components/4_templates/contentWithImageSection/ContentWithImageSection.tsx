@@ -14,7 +14,7 @@ interface Props {
 export const ContentWithImageSection: FC<Props> = ({
 	className,
 	imageUrl,
-	children
+	children,
 }) => {
 	return (
 		<section>
@@ -22,9 +22,7 @@ export const ContentWithImageSection: FC<Props> = ({
 				background="transparent"
 				className={classNames(styles.contentContainer, className)}
 			>
-				<Surface className={styles.content}>
-					{children}
-				</Surface>
+				<Surface className={styles.content}>{children}</Surface>
 				<img alt="section decoration" src={imageUrl} className={styles.image} />
 			</Surface>
 		</section>
