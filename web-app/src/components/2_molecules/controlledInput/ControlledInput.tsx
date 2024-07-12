@@ -3,8 +3,7 @@ import classNames from "classnames";
 import type React from "react";
 import { forwardRef } from "react";
 
-interface Props
-	extends React.InputHTMLAttributes<HTMLInputElement> {
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 	label?: string;
 	errorMessage?: string;
 }
