@@ -3,8 +3,10 @@ import type { FC } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Input } from "@/components/1_atoms/input/Input";
+import { InputInfoWrapper } from "@/components/1_atoms/inputInfoWrapper/InputInfoWrapper";
 import { Button } from "@/components/2_molecules/button/Button";
+import { ControlledInput } from "@/components/2_molecules/controlledInput/ControlledInput";
+import { ControlledTextArea } from "@/components/2_molecules/controlledTextArea/ControlledTextArea";
 import styles from "./ContactForm.module.scss";
 
 const contactFormSchema = z.object({
@@ -37,17 +39,17 @@ export const ContactForm: FC = () => {
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-			<Input
+			<ControlledInput
 				label="Subject"
 				errorMessage={errors.subject?.message}
 				className={styles.input}
 				{...control.register("subject")}
 			/>
-			<Input
-				label="Message"
-				errorMessage={errors.message?.message}
+			<ControlledTextArea
 				className={styles.input}
-				{...control.register("message")}
+				errorMessage={errors.message?.message}
+				label="Message"
+				{...control.register("message", {})}
 			/>
 			<Button variant="primary" className={styles.submitButton} type="submit">
 				Send

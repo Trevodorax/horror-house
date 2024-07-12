@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"start": "vite",
+		"start": "npm i && vite",
 		"test": "vitest",
 		"build": "tsc && vite build",
 		"lint": "npx @biomejs/biome check .",
