@@ -91,11 +91,8 @@ export const Home: FC = () => {
 				>
 					<Carousel
 						className={classNames(styles.carousel)}
-						items={escapeGameSessions.map((session, index) => (
-							<SessionInfo
-								key={`${session.title}-${index}`}
-								session={session}
-							/>
+						items={escapeGameSessions.map((session) => (
+							<SessionInfo key={`${session.title}`} session={session} />
 						))}
 					/>
 				</div>
