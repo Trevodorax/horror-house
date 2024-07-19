@@ -5,9 +5,7 @@ interface ThemeContextProps {
 	isDark: boolean;
 }
 
-const ThemeContext = createContext<ThemeContextProps | undefined>(
-	undefined,
-);
+const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 	const [isDark, setIsDark] = useState(false);
@@ -15,13 +13,11 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 	const toggleTheme = () => setIsDark(!isDark);
 
 	return (
-		<ThemeContext.Provider
-			value={{toggleTheme, isDark}}
-		>
-			<div 
-				id="theme-provider" 
+		<ThemeContext.Provider value={{ toggleTheme, isDark }}>
+			<div
+				id="theme-provider"
 				data-theme={isDark ? "dark" : "light"}
-				style={{width: '100%', height: '100%'}} 
+				style={{ width: "100%", height: "100%" }}
 			>
 				{children}
 			</div>
