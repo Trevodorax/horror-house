@@ -7,7 +7,7 @@ export const useQueryGetEmployees = (): UseQueryResult<EmployeeInfo, Error> => {
   return useQuery({
     queryKey: ['employees'],
     queryFn: async (): Promise<EmployeeInfo> => {
-        const response = ky.get('http://localhost:3333/employees')
+        const response = ky.get('http://localhost:3000/employees')
         const data = await response.json()
         return EmployeeInfoSchema.parse(data)
     }
