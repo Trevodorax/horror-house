@@ -8,20 +8,24 @@ import { GlobalFooter } from "@/components/3_organisms/globalFooter/GlobalFooter
 import { SidebarProvider } from "@/components/3_organisms/sidebarContext/SidebarContext";
 import { ThemeProvider } from "@/components/3_organisms/themeContext/ThemeContext";
 import styles from "./GlobalLayout.module.scss";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "@/hooks/queries/queryClient";
 
 export const GlobalLayout: FC = () => {
 	return (
 		<ThemeProvider>
 			<SidebarProvider>
-				<div className={styles.globalLayoutContainer}>
-					<GlobalHeader />
-					<main className={styles.mainContainer}>
-						<Surface className={styles.globalLayoutOutletContainer}>
-							<Outlet />
-						</Surface>
-					</main>
-					<GlobalFooter />
-				</div>
+				<QueryClientProvider client={queryClient}>
+					<div className={styles.globalLayoutContainer}>
+						<GlobalHeader />
+						<main className={styles.mainContainer}>
+							<Surface className={styles.globalLayoutOutletContainer}>
+								<Outlet />
+							</Surface>
+						</main>
+						<GlobalFooter />
+					</div>
+				</QueryClientProvider>
 			</SidebarProvider>
 		</ThemeProvider>
 	);
