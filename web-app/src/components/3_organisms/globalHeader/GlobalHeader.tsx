@@ -6,6 +6,7 @@ import { NavigationLinkBar } from "../navigationLinkBar/NavigationLinkBar";
 import { ToggleSidebarButton } from "../toggleSidebarButton/ToggleSidebarButton";
 
 import styles from "./GlobalHeader.module.scss";
+import { ToggleThemeButton } from "../toggleThemeButton/ToggleThemeButton";
 
 export const GlobalHeader: FC = () => {
 	return (
@@ -13,7 +14,10 @@ export const GlobalHeader: FC = () => {
 			<Surface background="secondary" className={styles.headerSurface}>
 				<LogoIcon className={styles.logoIcon} />
 				<NavigationLinkBar />
-				<ToggleSidebarButton />
+				<div className={styles.buttonsContainer}>
+					<ToggleThemeButton />
+					<ToggleSidebarButton />
+				</div>
 			</Surface>
 		</header>
 	);
