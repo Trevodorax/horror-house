@@ -1,4 +1,4 @@
-#root {
+#theme-provider {
   --color-surface-default: #ffffff;
   --color-surface-inversed: #333333;
   --color-surface-primary: #0EBA90;
@@ -8,4 +8,10 @@
   --color-surface-warning: #ffeb3b;
   --color-surface-info: #00bcd4;
   --color-surface-error: #f44336;
+}
+
+#theme-provider[data-theme="dark"] {
+  --color-surface-default: #000000;
+  --color-surface-inversed: #ffffff;
+  --color-surface-secondary: #3b3b3b;
 }
