@@ -6,7 +6,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmConfigService } from './config/database.config';
 import { UsersModule } from './users/users.module';
-import { EmployeesModule } from './employees/employees.module';
 
 @Module({
   imports: [
@@ -19,8 +18,7 @@ import { EmployeesModule } from './employees/employees.module';
       useClass: TypeOrmConfigService,
     }),
     AuthModule,
-    UsersModule,
-    EmployeesModule
+    UsersModule
   ],
   providers: [AppService, AuthService],
 })

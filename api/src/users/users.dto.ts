@@ -1,23 +1,25 @@
-import { UserRole } from './users.entity';
+import { User, UserRole } from './users.entity';
+import { z } from 'zod'
 
-export interface ResetPasswordDto {
-  passwordResetCode: string;
-  newPassword: string;
+export const CreateUserSchema = z.object({
+  email: z.string().email(),
+  fullName: z.string(),
+  role: z.enum([UserRole.ADMIN, UserRole.SUPER_ADMIN]),
+  password: z.string()
+})
+
+export type CreateUserDto = z.infer<typeof CreateUserSchema>
+
+export interface UserResponse {
+  email: string
+  fullName: string
+  role: UserRole
 }
 
-export interface NewUserDto {
-  email: string;
-  fullName: string;
-  role: UserRole;
-  associationId: string;
-}
-
-export interface PartialUserDto {
-  email?: string;
-  fullName?: string;
-  role?: UserRole;
-}
-
-export interface UserSearchDto {
-  search: string;
+export function userToResponse(user: User) {
+  return {
+    email: user.email,
+    fullName: user.fullName,
+    role: user.role
+  }
 }
