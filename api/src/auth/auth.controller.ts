@@ -11,7 +11,6 @@ const ResetPasswordSchema = z.object({
 const LoginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
-  associationId: z.string(),
 });
 
 interface AuthResponse {
@@ -30,7 +29,6 @@ export class AuthController {
     const validBody = LoginSchema.parse(body);
 
     const token = await this.authService.login({
-      associationId: validBody.associationId,
       email: validBody.email,
       password: validBody.password,
     });

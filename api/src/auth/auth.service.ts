@@ -6,15 +6,9 @@ import { UserPayload } from './decorators/user.decorator';
 import * as bcrypt from 'bcrypt';
 import { ConfigService } from '@nestjs/config';
 
-interface ResetPasswordDto {
-  passwordResetCode: string;
-  newPassword: string;
-}
-
 interface LoginDto {
   email: string;
   password: string;
-  associationId: string;
 }
 
 @Injectable()

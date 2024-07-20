@@ -2,19 +2,12 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  ManyToOne,
-  OneToMany,
-  ManyToMany,
-  JoinTable,
-  OneToOne,
   CreateDateColumn,
 } from 'typeorm';
 
 export enum UserRole {
   SUPER_ADMIN = 'super_admin',
-  ADMIN = 'admin',
-  INTERNAL = 'internal',
-  EXTERNAL = 'external',
+  ADMIN = 'admin'
 }
 
 @Entity()
