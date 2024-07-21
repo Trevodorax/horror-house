@@ -7,6 +7,7 @@ import { ToggleSidebarButton } from "../toggleSidebarButton/ToggleSidebarButton"
 
 import styles from "./GlobalHeader.module.scss";
 import { ToggleThemeButton } from "../toggleThemeButton/ToggleThemeButton";
+import { LoginLogoutButton } from "@/components/2_molecules/loginLogoutButton/LoginLogoutButton";
 
 export const GlobalHeader: FC = () => {
 	return (
@@ -15,6 +16,7 @@ export const GlobalHeader: FC = () => {
 				<LogoIcon className={styles.logoIcon} />
 				<NavigationLinkBar />
 				<div className={styles.buttonsContainer}>
+					<LoginLogoutButton />
 					<ToggleThemeButton />
 					<ToggleSidebarButton />
 				</div>
