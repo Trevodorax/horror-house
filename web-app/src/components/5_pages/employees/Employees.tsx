@@ -5,20 +5,20 @@ import { Button } from "@/components/2_molecules/button/Button";
 import { CreateUserForm } from "@/components/3_organisms/createUserForm/CreateUserForm";
 import { useModal } from "@/components/3_organisms/modalContext/ModalContext";
 import { useMutationDeleteUser } from "@/hooks/queries/useMutationDeleteUser";
+import { useQueryGetMe } from "@/hooks/queries/useQueryGetMe";
 import { useQueryGetUsers } from "@/hooks/queries/useQueryGetUsers";
+import { UserRole } from "@/types/User";
 import { useState } from "react";
 import styles from "./Employees.module.scss";
-import { useQueryGetMe } from "@/hooks/queries/useQueryGetMe";
-import { UserRole } from "@/types/User";
 
 export const Employees = () => {
 	const users = useQueryGetUsers();
 	const { mutate: deleteUser } = useMutationDeleteUser();
 	const { openModalWith } = useModal();
 	const [search, setSearch] = useState("");
-	const me = useQueryGetMe()
+	const me = useQueryGetMe();
 
-	const isSuperAdmin = me.data?.role === UserRole.SUPER_ADMIN
+	const isSuperAdmin = me.data?.role === UserRole.SUPER_ADMIN;
 
 	return (
 		<Surface className={styles.employeesPageContainer}>
