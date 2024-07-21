@@ -7,8 +7,13 @@
   padding: 0 16px;
 }
 
-.actionIcon {
-  width: 24px;
-  height: 24px;
-  color: var(--color-text-default)
+.actionsContainer {
+  display: flex;
+  gap: 8px;
+  
+  .actionIcon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-default)
+  }
 }

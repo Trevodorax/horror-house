@@ -1,13 +1,12 @@
 import { Surface } from "@/components/1_atoms/surface/Surface";
 import { Text } from "@/components/1_atoms/text/Text";
 import { Button } from "@/components/2_molecules/button/Button";
-// import { CreateSessionForm } from "@/components/3_organisms/createSessionForm/CreateSessionForm";
+import { CreateSessionForm } from "@/components/3_organisms/createSessionForm/CreateSessionForm";
 import { useModal } from "@/components/3_organisms/modalContext/ModalContext";
+import { SessionCard } from "@/components/3_organisms/sessionCard/SessionCard";
+import { useQueryGetSessions } from "@/hooks/queries/useQueryGetSessions";
 import { useState } from "react";
 import styles from "./Sessions.module.scss";
-import { useQueryGetSessions } from "@/hooks/queries/useQueryGetSessions";
-import { CreateSessionForm } from "@/components/3_organisms/createSessionForm/CreateSessionForm";
-import { SessionCard } from "@/components/3_organisms/sessionCard/SessionCard";
 
 export const Sessions = () => {
 	const sessions = useQueryGetSessions();
@@ -33,9 +32,11 @@ export const Sessions = () => {
 				</Button>
 			</div>
 			<div className={styles.cardsContainer}>
-				{sessions.data?.filter((session => session.title.includes(search))).map((session => (
-                    <SessionCard key={session.id} session={session}></SessionCard>
-                )))}
+				{sessions.data
+					?.filter((session) => session.title.includes(search))
+					.map((session) => (
+						<SessionCard key={session.id} session={session} />
+					))}
 			</div>
 		</Surface>
 	);

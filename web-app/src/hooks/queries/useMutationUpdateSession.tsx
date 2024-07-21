@@ -34,12 +34,8 @@ export const useMutationUpdateSession = () => {
 			toast.error(error.message);
 			return null;
 		},
-		onSuccess: (data) => {
-			if (data === null) {
-				queryClient.invalidateQueries({ queryKey: ["sessions"] });
-			} else {
-				queryClient.invalidateQueries({ queryKey: ["sessions", data.id] });
-			}
+		onSuccess: () => {
+			queryClient.invalidateQueries({ queryKey: ["sessions"] });
 		},
 	});
 };
