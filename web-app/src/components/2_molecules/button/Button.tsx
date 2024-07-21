@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import type { ButtonHTMLAttributes, FC } from "react";
+import type { ButtonHTMLAttributes, FC, MouseEventHandler } from "react";
 
 import { Surface } from "../../1_atoms/surface/Surface";
 
@@ -20,6 +20,12 @@ export const Button: FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ({
 	variant = "default",
 	...props
 }) => {
+	const handleClick:  MouseEventHandler<HTMLButtonElement> = (e) => {
+		e.stopPropagation()
+		if(props.onClick) {
+			props.onClick(e)
+		}
+	}
 	return (
 		<button
 			{...props}
@@ -28,6 +34,7 @@ export const Button: FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ({
 				styles.buttonContainer,
 				styles[`variant-${variant}`],
 			)}
+			onClick={handleClick}
 		>
 			<Surface background={variant} className={styles.buttonSurface}>
 				{props.children}

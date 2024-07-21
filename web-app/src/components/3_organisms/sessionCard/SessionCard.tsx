@@ -24,8 +24,12 @@ export const SessionCard: FC<Props> = ({ session }) => {
 		openModalWith(<UpdateSessionForm session={session} />)
 	};
 
+    const onCardClick = () => {
+        alert('card clicked')
+    }
+
 	return (
-		<Card className={styles.card}>
+		<Card className={styles.card} onClick={onCardClick}>
 			<ActionsHeader title={session.title} remove={onRemove} edit={onEdit} />
 			<div className={styles.sessionCardContent}>
 				<div>

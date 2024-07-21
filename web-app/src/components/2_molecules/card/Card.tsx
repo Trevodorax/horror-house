@@ -6,11 +6,12 @@ import styles from "./Card.module.scss";
 interface Props {
 	children: ReactNode;
 	className?: string;
+	onClick?: () => void;
 }
 
-export const Card: FC<Props> = ({ children, className }) => {
+export const Card: FC<Props> = ({ children, className, onClick }) => {
 	return (
-		<Surface className={classNames(styles.cardContainer, className)}>
+		<Surface onClick={onClick} className={classNames(styles.cardContainer, className, {[styles.clickable]: onClick !== undefined})}>
 			{children}
 		</Surface>
 	);

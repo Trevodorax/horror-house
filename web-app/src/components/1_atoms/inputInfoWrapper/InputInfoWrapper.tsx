@@ -15,7 +15,7 @@ export const InputInfoWrapper: FC<InputInfoWrapperProps> = ({
 	children,
 }) => {
 	return (
-		<Surface>
+		<Surface background="transparent">
 			{label && <label className={styles.label}>{label}</label>}
 			{children}
 			{errorMessage && (

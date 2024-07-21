@@ -4,4 +4,11 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: var(--color-surface-secondary);
+
+    &.clickable {
+        &:hover {
+            filter: brightness(0.9);
+            cursor: pointer;
+        }
+    }
 }
