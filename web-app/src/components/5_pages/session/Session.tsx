@@ -6,18 +6,18 @@ import { useModal } from "@/components/3_organisms/modalContext/ModalContext";
 import { SessionCard } from "@/components/3_organisms/sessionCard/SessionCard";
 import { useMutationDeleteBooking } from "@/hooks/queries/useMutationDeleteBooking";
 import { useQueryGetBookingsForSession } from "@/hooks/queries/useQueryGetBookingsForSession";
+import { useQueryGetMe } from "@/hooks/queries/useQueryGetMe";
 import { useQueryGetSessionById } from "@/hooks/queries/useQueryGetSessionById";
 import { router } from "@/router";
+import { UserRole } from "@/types/User";
 import { useParams } from "react-router-dom";
 import styles from "./Session.module.scss";
-import { useQueryGetMe } from "@/hooks/queries/useQueryGetMe";
-import { UserRole } from "@/types/User";
 
 export const Session = () => {
 	const { sessionId } = useParams<{ sessionId: string }>();
 	const { openModalWith } = useModal();
 	const { mutate: deleteBooking } = useMutationDeleteBooking();
-	const me = useQueryGetMe()
+	const me = useQueryGetMe();
 
 	const session = useQueryGetSessionById(sessionId ?? "");
 	const existingBookings = useQueryGetBookingsForSession(sessionId ?? "");
@@ -27,7 +27,8 @@ export const Session = () => {
 		return null;
 	}
 
-	const isAdmin = me.data?.role === UserRole.ADMIN || me.data?.role === UserRole.SUPER_ADMIN
+	const isAdmin =
+		me.data?.role === UserRole.ADMIN || me.data?.role === UserRole.SUPER_ADMIN;
 
 	return (
 		<div className={styles.sessionPageContainer}>
