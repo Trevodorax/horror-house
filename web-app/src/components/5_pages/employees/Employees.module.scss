@@ -1,0 +1,87 @@
+.trashButton {
+    .trashIcon {
+        height: 24px;
+        width: 24px;
+        color: white;
+    }
+}
+
+.employeesPageContainer {
+    padding: 16px;
+}
+
+.searchAndActions {
+    display: flex;
+    padding-bottom: 16px;
+
+    .newUserButton {
+        margin-inline-start: 16px;
+    }
+}
+
+
+.usersTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+    
+    thead {
+        tr {
+            background-color: var(--color-surface-secondary);
+            color: var(--color-text-default);
+            text-align: left;
+            font-weight: bold;
+        }
+    }
+
+    th, td {
+        padding: 12px 15px;
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid #ddd;
+
+            &:nth-of-type(even) {
+                background-color: #f9f9f9;
+            }
+
+            &:hover {
+                background-color: #f1f1f1;
+                cursor: pointer;
+            }
+        }
+    }
+
+    // Responsive table
+    @media (max-width: 600px) {
+        thead {
+            display: none;
+        }
+
+        tbody, tr, td {
+            display: block;
+            width: 100%;
+        }
+
+        tr {
+            margin-bottom: 15px;
+            border-bottom: black solid 1px;
+        }
+
+        td {
+            position: relative;
+
+            &::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+    }
+}

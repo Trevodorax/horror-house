@@ -5,7 +5,7 @@ import { Surface } from "../../1_atoms/surface/Surface";
 
 import styles from "./Button.module.scss";
 
-type buttonVariant = "default" | "primary" | "secondary" | "transparent";
+type buttonVariant = "default" | "primary" | "secondary" | "transparent" | "error";
 
 interface Props {
 	variant?: buttonVariant;

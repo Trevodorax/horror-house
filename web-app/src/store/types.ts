@@ -1,7 +1,5 @@
 export interface AuthSlice {
-  token: string | null
+	token: string | null;
 }
 
-export interface GlobalStore extends
-  AuthSlice
-{}
+export interface GlobalStore extends AuthSlice {}

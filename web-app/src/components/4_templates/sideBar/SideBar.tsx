@@ -29,5 +29,5 @@ export const SideBar: FC<Props & HTMLAttributes<HTMLElement>> = ({
 			<ActionsHeader close={onClose} title="Navigation" />
 			<Surface className={styles.sideBarSurface}>{children}</Surface>
 		</aside>
-	)
+	);
 };
