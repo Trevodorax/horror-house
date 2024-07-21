@@ -1,4 +1,6 @@
 .textWrapper {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
   h1 {
     font-size: 2rem;
   }

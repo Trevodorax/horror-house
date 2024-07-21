@@ -36,6 +36,7 @@
   }
 
   &-error {
-    color: var(--color-surface-error);
+    background-color: var(--color-surface-error);
+    color: var(--color-text-default);
   }
 }
