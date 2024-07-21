@@ -1,9 +1,10 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, NotFoundException, Post } from '@nestjs/common';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { CreateUserSchema, userToResponse } from './users.dto';
 import { UsersService } from './users.service';
 import { Roles } from 'src/auth/rules.decorator';
-import { UserRole } from './users.entity';
+import { User, UserRole } from './users.entity';
+import { GetUser, UserPayload } from 'src/auth/decorators/user.decorator';
 
 @Controller('users')
 export class UsersController {
@@ -15,6 +16,17 @@ export class UsersController {
     const users = await this.usersService.list()
 
     return users.map(userToResponse)
+  }
+
+  @Get('me')
+  async getAuthentcatedUser(@GetUser() user: UserPayload) {
+    const foundUser = await this.usersService.findOneById(user.id)
+
+    if(!foundUser) {
+      throw new NotFoundException('You were not found in our systems.')
+    }
+
+    return userToResponse(foundUser)
   }
 
   @Roles(UserRole.SUPER_ADMIN)
