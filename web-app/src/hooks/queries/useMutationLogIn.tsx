@@ -1,4 +1,4 @@
-import { useMutation, UseMutationResult } from "@tanstack/react-query"
+import { useMutation } from "@tanstack/react-query"
 import { query } from "./kySetup"
 import { z } from "zod"
 import { queryClient } from "./queryClient"
