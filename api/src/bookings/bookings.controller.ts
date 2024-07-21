@@ -24,7 +24,7 @@ export class BookingsController {
   }
 
   @Public()
-  @Get('sessions/:id')
+  @Get('session/:id')
   async getBookingsForSession(@Param('id') id: string) {
     return this.bookingsService.findBySessionId(id)
   }

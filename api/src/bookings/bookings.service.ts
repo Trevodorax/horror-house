@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { MoreThan, MoreThanOrEqual, Repository } from 'typeorm';
 import { SessionsService } from 'src/sessions/sessions.service';
 import { Booking } from './bookings.entity';
 import { CreateBookingDto, DeleteBookingDto } from './bookings.dto';
@@ -36,9 +36,17 @@ export class BookingsService {
   }
 
   async findBySessionId(sessionId: string): Promise<Booking[]> {
+    const currentTime = new Date();
+
     return this.bookingRepository.find({
-      where: { session: { id: sessionId } },
+      where: {
+        session: { id: sessionId },
+        startTime: MoreThanOrEqual(currentTime),
+      },
       relations: ['session'],
+      order: {
+        startTime: 'ASC',
+      },
     });
-  }
+}
 }

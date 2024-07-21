@@ -7,7 +7,7 @@ import { queryClient } from "./queryClient";
 import { ErrorSchema } from "./types";
 
 export const CreateBookingSchema = z.object({
-	startTime: z.string().datetime(),
+	startTime: z.coerce.date().refine((data) => data > new Date(), { message: "Start time must be in the future" }),
 	nbParticipants: z.number(),
 	clientEmail: z.string().email(),
 	sessionId: z.string().uuid(),
