@@ -24,7 +24,7 @@ export const ActionsHeader: FC<Props> = ({
 }) => {
 	return (
 		<Surface className={styles.headerContainer} background="transparent">
-			<Text type="sectionHeading">{title}</Text>
+			<Text type="sectionHeading" className={styles.title}>{title}</Text>
 			<div className={styles.actionsContainer}>
 				{close && (
 					<Button aria-label="close" onClick={close}>
