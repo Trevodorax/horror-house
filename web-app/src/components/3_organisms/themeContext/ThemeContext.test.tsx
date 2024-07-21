@@ -22,7 +22,7 @@ describe("ThemeProvider", () => {
 				<TestComponent />
 			</ThemeProvider>,
 		);
-		expect(screen.getByTestId("theme-state").textContent).toBe("light");
+		expect(screen.getByTestId("theme-state").textContent).toBe("dark");
 	});
 
 	it("should toggle the theme state", () => {
@@ -35,12 +35,6 @@ describe("ThemeProvider", () => {
 		const toggleBtn = screen.getByTestId("toggle-btn");
 
 		// Initially light
-		expect(screen.getByTestId("theme-state").textContent).toBe("light");
-
-		// toggle theme
-		act(() => {
-			toggleBtn.click();
-		});
 		expect(screen.getByTestId("theme-state").textContent).toBe("dark");
 
 		// toggle theme
@@ -48,6 +42,12 @@ describe("ThemeProvider", () => {
 			toggleBtn.click();
 		});
 		expect(screen.getByTestId("theme-state").textContent).toBe("light");
+
+		// toggle theme
+		act(() => {
+			toggleBtn.click();
+		});
+		expect(screen.getByTestId("theme-state").textContent).toBe("dark");
 	});
 
 	it("should throw an error if useTheme is used outside of ThemeProvider", () => {
