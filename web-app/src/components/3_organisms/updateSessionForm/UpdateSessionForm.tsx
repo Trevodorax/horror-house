@@ -3,37 +3,44 @@ import { Button } from "@/components/2_molecules/button/Button";
 import { ControlledInput } from "@/components/2_molecules/controlledInput/ControlledInput";
 import { ControlledTextArea } from "@/components/2_molecules/controlledTextArea/ControlledTextArea";
 import {
-	CreateSessionSchema,
-	useMutationCreateSession,
-} from "@/hooks/queries/useMutationCreateSession";
+	UpdateSessionSchema,
+	useMutationUpdateSession,
+} from "@/hooks/queries/useMutationUpdateSession";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { useModal } from "../modalContext/ModalContext";
-import styles from "./CreateSessionForm.module.scss";
+import styles from "./UpdateSessionForm.module.scss";
+import { Session } from "@/types/Session";
+import { FC } from "react";
 
-export const CreateSessionForm = () => {
+interface Props {
+	session: Session
+}
+
+export const UpdateSessionForm: FC<Props> = ({session}) => {
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<z.infer<typeof CreateSessionSchema>>({
-		resolver: zodResolver(CreateSessionSchema),
+	} = useForm<z.infer<typeof UpdateSessionSchema>>({
+		resolver: zodResolver(UpdateSessionSchema),
+		defaultValues: session
 	});
 
-	const { mutate: createSession } = useMutationCreateSession();
+	const { mutate: updateSession } = useMutationUpdateSession();
 	const { closeModal } = useModal();
 
-	const onSubmit: SubmitHandler<z.infer<typeof CreateSessionSchema>> = async (
+	const onSubmit: SubmitHandler<z.infer<typeof UpdateSessionSchema>> = async (
 		data,
 	) => {
-		createSession(data);
+		updateSession(data);
 		closeModal();
 	};
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-			<Text type="sectionHeading">Create session</Text>
+			<Text type="sectionHeading">Update session</Text>
 			<ControlledInput
 				label="Theme"
 				errorMessage={errors.theme?.message}
@@ -67,7 +74,7 @@ export const CreateSessionForm = () => {
 				{...control.register("minNbParticipants", { valueAsNumber: true })}
 			/>
 			<Button variant="primary" className={styles.submitButton} type="submit">
-				Create
+				Update
 			</Button>
 		</form>
 	);
