@@ -8,12 +8,17 @@ import { useMutationDeleteUser } from "@/hooks/queries/useMutationDeleteUser";
 import { useQueryGetUsers } from "@/hooks/queries/useQueryGetUsers";
 import { useState } from "react";
 import styles from "./Employees.module.scss";
+import { useQueryGetMe } from "@/hooks/queries/useQueryGetMe";
+import { UserRole } from "@/types/User";
 
 export const Employees = () => {
 	const users = useQueryGetUsers();
 	const { mutate: deleteUser } = useMutationDeleteUser();
 	const { openModalWith } = useModal();
 	const [search, setSearch] = useState("");
+	const me = useQueryGetMe()
+
+	const isSuperAdmin = me.data?.role === UserRole.SUPER_ADMIN
 
 	return (
 		<Surface className={styles.employeesPageContainer}>
@@ -24,14 +29,17 @@ export const Employees = () => {
 					type="text"
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
+					className={styles.searchInput}
 				/>
-				<Button
-					className={styles.newUserButton}
-					variant="primary"
-					onClick={() => openModalWith(<CreateUserForm />)}
-				>
-					New employee
-				</Button>
+				{isSuperAdmin && (
+					<Button
+						className={styles.newUserButton}
+						variant="primary"
+						onClick={() => openModalWith(<CreateUserForm />)}
+					>
+						New employee
+					</Button>
+				)}
 			</div>
 			<div>
 				<table className={styles.usersTable}>
@@ -46,9 +54,11 @@ export const Employees = () => {
 							<td>
 								<Text>Role</Text>
 							</td>
-							<td>
-								<Text>Delete</Text>
-							</td>
+							{isSuperAdmin && (
+								<td>
+									<Text>Delete</Text>
+								</td>
+							)}
 						</tr>
 					</thead>
 					{users.data
@@ -64,15 +74,17 @@ export const Employees = () => {
 								<td>
 									<Text>{user.role}</Text>
 								</td>
-								<td>
-									<Button
-										className={styles.trashButton}
-										variant="error"
-										onClick={() => deleteUser({ id: user.id })}
-									>
-										<TrashIcon className={styles.trashIcon} />
-									</Button>
-								</td>
+								{isSuperAdmin && (
+									<td>
+										<Button
+											className={styles.trashButton}
+											variant="error"
+											onClick={() => deleteUser({ id: user.id })}
+										>
+											<TrashIcon className={styles.trashIcon} />
+										</Button>
+									</td>
+								)}
 							</tr>
 						)) ?? "no data"}
 				</table>

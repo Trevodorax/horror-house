@@ -6,19 +6,19 @@ import {
 	useMutationCreateBooking,
 } from "@/hooks/queries/useMutationCreateBooking";
 import { zodResolver } from "@hookform/resolvers/zod";
+import type { FC } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { useModal } from "../modalContext/ModalContext";
 import styles from "./BookSessionForm.module.scss";
-import { FC } from "react";
 
-const BookSessionFormSchema = CreateBookingSchema.omit({sessionId: true})
+const BookSessionFormSchema = CreateBookingSchema.omit({ sessionId: true });
 
 interface Props {
-    sessionId: string
+	sessionId: string;
 }
 
-export const BookSessionForm: FC<Props> = ({sessionId}) => {
+export const BookSessionForm: FC<Props> = ({ sessionId }) => {
 	const {
 		control,
 		handleSubmit,
@@ -33,7 +33,7 @@ export const BookSessionForm: FC<Props> = ({sessionId}) => {
 	const onSubmit: SubmitHandler<z.infer<typeof BookSessionFormSchema>> = async (
 		data,
 	) => {
-		createBooking({...data, sessionId});
+		createBooking({ ...data, sessionId });
 		closeModal();
 	};
 
@@ -46,7 +46,7 @@ export const BookSessionForm: FC<Props> = ({sessionId}) => {
 				className={styles.input}
 				{...control.register("clientEmail")}
 			/>
-            <ControlledInput
+			<ControlledInput
 				label="Number of participants"
 				errorMessage={errors.nbParticipants?.message}
 				className={styles.input}

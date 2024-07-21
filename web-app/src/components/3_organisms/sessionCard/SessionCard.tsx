@@ -8,6 +8,8 @@ import { ActionsHeader } from "../actionsHeader/ActionsHeader";
 import { useModal } from "../modalContext/ModalContext";
 import { UpdateSessionForm } from "../updateSessionForm/UpdateSessionForm";
 import styles from "./SessionCard.module.scss";
+import { useQueryGetMe } from "@/hooks/queries/useQueryGetMe";
+import { UserRole } from "@/types/User";
 
 interface Props {
 	session: Session;
@@ -17,6 +19,7 @@ export const SessionCard: FC<Props> = ({ session }) => {
 	const { mutate: deleteSession } = useMutationDeleteSession();
 	const { openModalWith } = useModal();
 	const navigate = useNavigate();
+	const me = useQueryGetMe()
 
 	const onRemove = () => {
 		deleteSession(session.id);
@@ -30,9 +33,11 @@ export const SessionCard: FC<Props> = ({ session }) => {
 		navigate(`/session/${session.id}`);
 	};
 
+	const isAdmin = me.data?.role === UserRole.ADMIN || me.data?.role === UserRole.SUPER_ADMIN
+
 	return (
 		<Card className={styles.card} onClick={onCardClick}>
-			<ActionsHeader title={session.title} remove={onRemove} edit={onEdit} />
+			<ActionsHeader title={session.title} remove={isAdmin ? onRemove : undefined} edit={isAdmin ? onEdit : undefined} />
 			<div className={styles.sessionCardContent}>
 				<div>
 					<Text type="subSectionHeading">{session.theme}</Text>

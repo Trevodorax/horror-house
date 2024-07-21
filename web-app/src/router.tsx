@@ -8,6 +8,7 @@ import { Home } from "./components/5_pages/home/Home";
 import { Login } from "./components/5_pages/login/Login";
 import { Session } from "./components/5_pages/session/Session";
 import { Sessions } from "./components/5_pages/sessions/Sessions";
+import { UserRole } from "./types/User";
 
 export const navItems = [
 	{
@@ -23,16 +24,13 @@ export const navItems = [
 		path: "/contact",
 	},
 	{
-		label: "Book",
-		path: "/booking",
-	},
-	{
 		label: "Sessions",
 		path: "/sessions",
 	},
 	{
 		label: "Employees",
 		path: "/employees",
+		acceptedRoles: [UserRole.ADMIN, UserRole.SUPER_ADMIN]
 	},
 ];
 
@@ -68,17 +66,7 @@ export const router = createBrowserRouter([
 			{
 				path: "session/:sessionId",
 				element: <Session />,
-			},
-			{
-				path: "booking",
-				element: <div>Booking</div>,
-				children: [
-					{
-						path: ":id",
-						element: <div>Booking</div>,
-					},
-				],
-			},
+			}
 		],
 	},
 ]);
