@@ -42,6 +42,7 @@ export const Login: FC = () => {
 			/>
 			<ControlledInput
 				label="Password"
+				type="password"
 				errorMessage={errors.password?.message}
 				className={styles.input}
 				{...control.register("password")}

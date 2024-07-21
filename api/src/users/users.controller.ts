@@ -1,4 +1,4 @@
-import { Body, Controller, Get, NotFoundException, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Post, Query } from '@nestjs/common';
 import { Public } from 'src/auth/decorators/public.decorator';
 import { CreateUserSchema, userToResponse } from './users.dto';
 import { UsersService } from './users.service';
@@ -36,5 +36,11 @@ export class UsersController {
 
     const user = await this.usersService.create(parsedDto)
     return userToResponse(user)
+  }
+
+  @Roles(UserRole.SUPER_ADMIN)
+  @Delete(':id')
+  async deleteUser(@Param('id') id: string) {
+    return this.usersService.delete({id})
   }
 }

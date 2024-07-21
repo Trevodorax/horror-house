@@ -1,11 +1,12 @@
 import {
   Injectable,
+  NotFoundException,
   UnprocessableEntityException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './users.entity';
-import { CreateUserDto } from './users.dto';
+import { CreateUserDto, DeleteUserDto } from './users.dto';
 import { hash } from 'bcrypt';
 
 
@@ -29,6 +30,14 @@ export class UsersService {
     const createdUser = await this.userRepository.save(user)
 
     return createdUser
+  }
+
+  async delete(dto: DeleteUserDto): Promise<User> {
+    const userToDelete = await this.findOneById(dto.id)
+    if(!userToDelete) {
+      throw new NotFoundException('User not found')
+    }
+    return this.userRepository.remove(userToDelete)
   }
 
   async list() {
