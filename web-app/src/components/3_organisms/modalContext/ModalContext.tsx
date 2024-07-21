@@ -1,7 +1,7 @@
 import { Surface } from "@/components/1_atoms/surface/Surface";
-import { type ReactNode, createContext, useContext, useState } from "react";
-import styles from './ModalContext.module.scss'
 import classNames from "classnames";
+import { type ReactNode, createContext, useContext, useState } from "react";
+import styles from "./ModalContext.module.scss";
 
 interface ModalContextProps {
 	isOpen: boolean;
@@ -11,37 +11,45 @@ interface ModalContextProps {
 	openModal: () => void;
 }
 
-const ModalContext = createContext<ModalContextProps | undefined>(
-	undefined,
-);
+const ModalContext = createContext<ModalContextProps | undefined>(undefined);
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
-	const [isOpen, setOpen] = useState(false)
-	const [modalContent, setModalContent] = useState<ReactNode>(<div>Coucou</div>)
+	const [isOpen, setOpen] = useState(false);
+	const [modalContent, setModalContent] = useState<ReactNode>(
+		<div>Coucou</div>,
+	);
 
 	const openModalWith = (content: ReactNode) => {
-		setModalContent(content)
-		setOpen(true)
-	}
+		setModalContent(content);
+		setOpen(true);
+	};
 
 	const clearModal = () => {
-		setModalContent(null)
-	}
+		setModalContent(null);
+	};
 
 	const closeModal = () => {
-		setOpen(false)
-	}
+		setOpen(false);
+	};
 
 	const openModal = () => {
-		setOpen(true)
-	}
+		setOpen(true);
+	};
 
 	return (
 		<ModalContext.Provider
 			value={{ isOpen, openModalWith, clearModal, closeModal, openModal }}
 		>
-			<div className={classNames(styles.modalOverlay, {[styles.closed]: !isOpen})} onClick={closeModal}>
-				<Surface className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
+			<div
+				className={classNames(styles.modalOverlay, {
+					[styles.closed]: !isOpen,
+				})}
+				onClick={closeModal}
+			>
+				<Surface
+					className={styles.modalContainer}
+					onClick={(e) => e.stopPropagation()}
+				>
 					{modalContent}
 				</Surface>
 			</div>

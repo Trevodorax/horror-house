@@ -3,8 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { GlobalLayout } from "./components/4_templates/globalLayout/GlobalLayout";
 import { Cgu } from "./components/5_pages/cgu/Cgu";
 import { Contact } from "./components/5_pages/contact/Contact";
-import { Home } from "./components/5_pages/home/Home";
 import { Employees } from "./components/5_pages/employees/Employees";
+import { Home } from "./components/5_pages/home/Home";
 import { Login } from "./components/5_pages/login/Login";
 
 export const navItems = [
@@ -30,8 +30,8 @@ export const navItems = [
 	},
 	{
 		label: "Employees",
-		path: "/employees"
-	}
+		path: "/employees",
+	},
 ];
 
 export const router = createBrowserRouter([
@@ -53,11 +53,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "login",
-				element: <Login />
+				element: <Login />,
 			},
 			{
 				path: "employees",
-				element: <Employees />
+				element: <Employees />,
 			},
 			{
 				path: "sessions",

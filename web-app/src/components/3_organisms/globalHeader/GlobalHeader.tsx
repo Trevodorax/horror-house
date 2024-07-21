@@ -5,9 +5,9 @@ import { Surface } from "../../1_atoms/surface/Surface";
 import { NavigationLinkBar } from "../navigationLinkBar/NavigationLinkBar";
 import { ToggleSidebarButton } from "../toggleSidebarButton/ToggleSidebarButton";
 
-import styles from "./GlobalHeader.module.scss";
-import { ToggleThemeButton } from "../toggleThemeButton/ToggleThemeButton";
 import { LoginLogoutButton } from "@/components/2_molecules/loginLogoutButton/LoginLogoutButton";
+import { ToggleThemeButton } from "../toggleThemeButton/ToggleThemeButton";
+import styles from "./GlobalHeader.module.scss";
 
 export const GlobalHeader: FC = () => {
 	return (

@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import { ThemeIcon } from "../../1_atoms/icons/ThemeIcon"
+import { ThemeIcon } from "../../1_atoms/icons/ThemeIcon";
 import { Button } from "../../2_molecules/button/Button";
 
 import { useTheme } from "../themeContext/ThemeContext";

@@ -1,19 +1,76 @@
-import { Button } from "@/components/2_molecules/button/Button"
-import { CreateUserForm } from "@/components/3_organisms/createUserForm/CreateUserForm"
-import { useModal } from "@/components/3_organisms/modalContext/ModalContext"
-import { useQueryGetUsers } from "@/hooks/queries/useQueryGetUsers"
-
+import { Surface } from "@/components/1_atoms/surface/Surface";
+import { Text } from "@/components/1_atoms/text/Text";
+import { Button } from "@/components/2_molecules/button/Button";
+import { CreateUserForm } from "@/components/3_organisms/createUserForm/CreateUserForm";
+import { useModal } from "@/components/3_organisms/modalContext/ModalContext";
+import { useQueryGetUsers } from "@/hooks/queries/useQueryGetUsers";
+import { useState } from "react";
+import styles from "./Employees.module.scss";
+import { TrashIcon } from "@/components/1_atoms/icons/TrashIcon";
 
 export const Employees = () => {
-    const users = useQueryGetUsers()
-    const {openModalWith} = useModal()
+	const users = useQueryGetUsers();
+	const { openModalWith } = useModal();
+	const [search, setSearch] = useState("");
 
-    return (
-        <div>
-            {users.data?.map((user) => (
-                <div key={user.email}>{user.email} {user.fullName} {user.role}</div>
-            )) ?? 'no data'}
-            <Button onClick={() => openModalWith(<CreateUserForm />)}>New user</Button>
-        </div>
-    )
-}
+	return (
+		<Surface className={styles.employeesPageContainer}>
+			<Text type="pageHeading">Employees</Text>
+			<div className={styles.searchAndActions}>
+				<input
+					placeholder="Search by name"
+					type="text"
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
+				/>
+				<Button
+					className={styles.newUserButton}
+					variant="primary"
+					onClick={() => openModalWith(<CreateUserForm />)}
+				>
+					New employee
+				</Button>
+			</div>
+			<div>
+				<table className={styles.usersTable}>
+					<thead>
+						<tr>
+							<td>
+								<Text>Full name</Text>
+							</td>
+							<td>
+								<Text>Email</Text>
+							</td>
+							<td>
+								<Text>Role</Text>
+							</td>
+							<td>
+								<Text>Delete</Text>
+							</td>
+						</tr>
+					</thead>
+					{users.data
+						?.filter((user) => user.fullName.toLowerCase().includes(search))
+						.map((user) => (
+							<tr key={user.email}>
+								<td>
+									<Text>{user.fullName}</Text>
+								</td>
+								<td>
+									<Text>{user.email}</Text>
+								</td>
+								<td>
+									<Text>{user.role}</Text>
+								</td>
+								<td>
+									<Button className={styles.trashButton} variant="error">
+										<TrashIcon className={styles.trashIcon} />
+									</Button>
+								</td>
+							</tr>
+						)) ?? "no data"}
+				</table>
+			</div>
+		</Surface>
+	);
+};

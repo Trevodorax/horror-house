@@ -5,13 +5,13 @@ import { Surface } from "../../1_atoms/surface/Surface";
 import { GlobalHeader } from "../../3_organisms/globalHeader/GlobalHeader";
 
 import { GlobalFooter } from "@/components/3_organisms/globalFooter/GlobalFooter";
+import { ModalProvider } from "@/components/3_organisms/modalContext/ModalContext";
 import { SidebarProvider } from "@/components/3_organisms/sidebarContext/SidebarContext";
 import { ThemeProvider } from "@/components/3_organisms/themeContext/ThemeContext";
-import styles from "./GlobalLayout.module.scss";
-import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/hooks/queries/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
-import { ModalProvider } from "@/components/3_organisms/modalContext/ModalContext";
+import styles from "./GlobalLayout.module.scss";
 
 export const GlobalLayout: FC = () => {
 	return (
