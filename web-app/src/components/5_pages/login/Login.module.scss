@@ -1,0 +1,18 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 16px;
+  
+    .input {
+      width: 100%;
+      flex-grow: 1;
+    }
+  
+    .submitButton {
+      min-width: 10%;
+      align-self: flex-end;
+      margin-top: 32px;
+    }
+  }
+  

@@ -3,7 +3,6 @@ import type { FC } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { InputInfoWrapper } from "@/components/1_atoms/inputInfoWrapper/InputInfoWrapper";
 import { Button } from "@/components/2_molecules/button/Button";
 import { ControlledInput } from "@/components/2_molecules/controlledInput/ControlledInput";
 import { ControlledTextArea } from "@/components/2_molecules/controlledTextArea/ControlledTextArea";

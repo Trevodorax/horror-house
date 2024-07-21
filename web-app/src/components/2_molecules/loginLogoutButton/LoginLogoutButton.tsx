@@ -1,12 +1,13 @@
 import { useQueryGetMe } from "@/hooks/queries/useQueryGetMe"
 import { Button } from "../button/Button"
-import { useMutationLogIn } from "@/hooks/queries/useMutationLogIn"
 import { queryClient } from "@/hooks/queries/queryClient"
 import { setTokenAction } from "@/store/authSlice/actions"
+import { router } from "@/router"
+import { useLocation } from "react-router-dom"
 
 export const LoginLogoutButton = () => {
+    const location = useLocation()
     const me = useQueryGetMe()
-    const {mutate: logIn} = useMutationLogIn({email: 'test@test.com', password: 'password'})
 
     const logout = () => {
         setTokenAction({token: null})
@@ -14,10 +15,13 @@ export const LoginLogoutButton = () => {
     }
 
     if(me.data === null) {
+        if(location.pathname === '/login') {
+            return null
+        }
         return (
             <Button
                 variant="primary"
-                onClick={() => logIn({email: 'test@test.com', password: 'password'})}
+                onClick={() => router.navigate('/login')}
             >
                 Log in
             </Button>
