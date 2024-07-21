@@ -1,11 +1,11 @@
-import { type UserInfo } from "@/types/User";
+import type { UserInfo } from "@/types/User";
 import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
 import { query } from "./kySetup";
 import { queryClient } from "./queryClient";
 
 export const DeleteUserSchema = z.object({
-	id: z.string()
+	id: z.string(),
 });
 
 type DeleteUserDto = z.infer<typeof DeleteUserSchema>;
@@ -19,7 +19,7 @@ export const useMutationDeleteUser = () => {
 
 			const data = await response.json<UserInfo>();
 
-			return data.id
+			return data.id;
 		},
 		onSuccess: () => {
 			queryClient.invalidateQueries({ queryKey: ["users"] });

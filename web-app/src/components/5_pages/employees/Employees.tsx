@@ -1,17 +1,17 @@
+import { TrashIcon } from "@/components/1_atoms/icons/TrashIcon";
 import { Surface } from "@/components/1_atoms/surface/Surface";
 import { Text } from "@/components/1_atoms/text/Text";
 import { Button } from "@/components/2_molecules/button/Button";
 import { CreateUserForm } from "@/components/3_organisms/createUserForm/CreateUserForm";
 import { useModal } from "@/components/3_organisms/modalContext/ModalContext";
+import { useMutationDeleteUser } from "@/hooks/queries/useMutationDeleteUser";
 import { useQueryGetUsers } from "@/hooks/queries/useQueryGetUsers";
 import { useState } from "react";
 import styles from "./Employees.module.scss";
-import { TrashIcon } from "@/components/1_atoms/icons/TrashIcon";
-import { useMutationDeleteUser } from "@/hooks/queries/useMutationDeleteUser";
 
 export const Employees = () => {
 	const users = useQueryGetUsers();
-	const {mutate: deleteUser} = useMutationDeleteUser()
+	const { mutate: deleteUser } = useMutationDeleteUser();
 	const { openModalWith } = useModal();
 	const [search, setSearch] = useState("");
 
@@ -65,7 +65,11 @@ export const Employees = () => {
 									<Text>{user.role}</Text>
 								</td>
 								<td>
-									<Button className={styles.trashButton} variant="error" onClick={() => deleteUser({id: user.id})}>
+									<Button
+										className={styles.trashButton}
+										variant="error"
+										onClick={() => deleteUser({ id: user.id })}
+									>
 										<TrashIcon className={styles.trashIcon} />
 									</Button>
 								</td>

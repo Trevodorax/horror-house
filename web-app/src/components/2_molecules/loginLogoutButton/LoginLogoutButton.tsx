@@ -13,7 +13,7 @@ export const LoginLogoutButton = () => {
 	const logout = () => {
 		setTokenAction({ token: null });
 		queryClient.invalidateQueries({ queryKey: ["me"] });
-		router.navigate('/login')
+		router.navigate("/login");
 	};
 
 	if (me.data === null) {
