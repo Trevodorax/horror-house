@@ -30,7 +30,7 @@ export const navItems = [
 	{
 		label: "Employees",
 		path: "/employees",
-		acceptedRoles: [UserRole.ADMIN, UserRole.SUPER_ADMIN]
+		acceptedRoles: [UserRole.ADMIN, UserRole.SUPER_ADMIN],
 	},
 ];
 
@@ -66,7 +66,7 @@ export const router = createBrowserRouter([
 			{
 				path: "session/:sessionId",
 				element: <Session />,
-			}
+			},
 		],
 	},
 ]);
