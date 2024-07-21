@@ -5,7 +5,7 @@ import { query } from "./kySetup";
 
 export const useQueryGetSessionById = (id: string) => {
 	return useQuery({
-		queryKey: ["session", id],
+		queryKey: ["sessions", id],
 		queryFn: async (): Promise<Session> => {
 			const response = await query.get(`sessions/${id}`);
 			const data = await response.json();

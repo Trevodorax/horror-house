@@ -7,6 +7,7 @@ import { ActionsHeader } from "../actionsHeader/ActionsHeader";
 import styles from "./SessionCard.module.scss";
 import { useModal } from "../modalContext/ModalContext";
 import { UpdateSessionForm } from "../updateSessionForm/UpdateSessionForm";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
 	session: Session;
@@ -15,6 +16,7 @@ interface Props {
 export const SessionCard: FC<Props> = ({ session }) => {
 	const { mutate: deleteSession } = useMutationDeleteSession();
     const {openModalWith} = useModal()
+    const navigate = useNavigate()
 
 	const onRemove = () => {
 		deleteSession(session.id);
@@ -25,7 +27,7 @@ export const SessionCard: FC<Props> = ({ session }) => {
 	};
 
     const onCardClick = () => {
-        alert('card clicked')
+        navigate(`/session/${session.id}`)
     }
 
 	return (
