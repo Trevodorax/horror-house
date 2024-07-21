@@ -9,5 +9,6 @@ export const query = ky.create({
           request.headers.set('Authorization', `Bearer ${useGlobalStore.getState().token}`);
         }
       ]
-    }
+    },
+    throwHttpErrors: false
 })

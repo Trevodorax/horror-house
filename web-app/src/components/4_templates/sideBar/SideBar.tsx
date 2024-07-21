@@ -19,7 +19,7 @@ export const SideBar: FC<Props & HTMLAttributes<HTMLElement>> = ({
 	onClose,
 	...props
 }) => {
-	return createPortal(
+	return (
 		<aside
 			{...props}
 			className={classNames(props.className, styles.sideBarContainer, {
@@ -28,7 +28,6 @@ export const SideBar: FC<Props & HTMLAttributes<HTMLElement>> = ({
 		>
 			<ActionsHeader close={onClose} title="Navigation" />
 			<Surface className={styles.sideBarSurface}>{children}</Surface>
-		</aside>,
-		document.getElementById("root") ?? document.body,
-	);
+		</aside>
+	)
 };
