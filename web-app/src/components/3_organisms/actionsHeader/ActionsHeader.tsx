@@ -4,10 +4,10 @@ import { CloseIcon } from "../../1_atoms/icons/CloseIcon";
 import { Surface } from "../../1_atoms/surface/Surface";
 import { Button } from "../../2_molecules/button/Button";
 
+import { PenIcon } from "@/components/1_atoms/icons/PenIcon";
 import { TrashIcon } from "@/components/1_atoms/icons/TrashIcon";
 import { Text } from "../../1_atoms/text/Text";
 import styles from "./ActionsHeader.module.scss";
-import { PenIcon } from "@/components/1_atoms/icons/PenIcon";
 
 interface Props {
 	title?: string;
@@ -24,7 +24,9 @@ export const ActionsHeader: FC<Props> = ({
 }) => {
 	return (
 		<Surface className={styles.headerContainer} background="transparent">
-			<Text type="sectionHeading" className={styles.title}>{title}</Text>
+			<Text type="sectionHeading" className={styles.title}>
+				{title}
+			</Text>
 			<div className={styles.actionsContainer}>
 				{close && (
 					<Button aria-label="close" onClick={close}>
