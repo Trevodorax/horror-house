@@ -9,7 +9,7 @@ interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
 export const ControlledTextArea = forwardRef<HTMLTextAreaElement, Props>(
 	({ label, errorMessage, ...textAreaProps }, ref) => {
 		return (
-			<InputInfoWrapper label="Message" errorMessage={errorMessage}>
+			<InputInfoWrapper label={label} errorMessage={errorMessage}>
 				<textarea ref={ref} {...textAreaProps} />
 			</InputInfoWrapper>
 		);

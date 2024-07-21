@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import type { FC, HTMLAttributes } from "react";
-import { createPortal } from "react-dom";
 
 import { Surface } from "../../1_atoms/surface/Surface";
 
@@ -26,7 +25,9 @@ export const SideBar: FC<Props & HTMLAttributes<HTMLElement>> = ({
 				[styles.open]: open,
 			})}
 		>
-			<ActionsHeader close={onClose} title="Navigation" />
+			<Surface>
+				<ActionsHeader close={onClose} title="Navigation" />
+			</Surface>
 			<Surface className={styles.sideBarSurface}>{children}</Surface>
 		</aside>
 	);

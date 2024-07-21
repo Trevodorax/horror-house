@@ -6,6 +6,7 @@ import { Contact } from "./components/5_pages/contact/Contact";
 import { Employees } from "./components/5_pages/employees/Employees";
 import { Home } from "./components/5_pages/home/Home";
 import { Login } from "./components/5_pages/login/Login";
+import { Sessions } from "./components/5_pages/sessions/Sessions";
 
 export const navItems = [
 	{
@@ -61,11 +62,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "sessions",
-				element: <div>Sessions</div>,
+				element: <Sessions />,
 				children: [
 					{
 						path: ":id",
-						element: <div>Session</div>,
+						element: <Sessions />,
 					},
 				],
 			},
