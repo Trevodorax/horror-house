@@ -6,6 +6,7 @@ export enum UserRole {
 }
 
 export const UserInfoSchema = z.object({
+	id: z.string(),
 	fullName: z.string(),
 	email: z.string(),
 	role: z.enum([UserRole.ADMIN, UserRole.SUPER_ADMIN]),
