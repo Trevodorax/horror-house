@@ -6,26 +6,26 @@ import {
 	UpdateSessionSchema,
 	useMutationUpdateSession,
 } from "@/hooks/queries/useMutationUpdateSession";
+import type { Session } from "@/types/Session";
 import { zodResolver } from "@hookform/resolvers/zod";
+import type { FC } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { useModal } from "../modalContext/ModalContext";
 import styles from "./UpdateSessionForm.module.scss";
-import { Session } from "@/types/Session";
-import { FC } from "react";
 
 interface Props {
-	session: Session
+	session: Session;
 }
 
-export const UpdateSessionForm: FC<Props> = ({session}) => {
+export const UpdateSessionForm: FC<Props> = ({ session }) => {
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<z.infer<typeof UpdateSessionSchema>>({
 		resolver: zodResolver(UpdateSessionSchema),
-		defaultValues: session
+		defaultValues: session,
 	});
 
 	const { mutate: updateSession } = useMutationUpdateSession();

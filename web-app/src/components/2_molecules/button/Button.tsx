@@ -20,12 +20,12 @@ export const Button: FC<Props & ButtonHTMLAttributes<HTMLButtonElement>> = ({
 	variant = "default",
 	...props
 }) => {
-	const handleClick:  MouseEventHandler<HTMLButtonElement> = (e) => {
-		e.stopPropagation()
-		if(props.onClick) {
-			props.onClick(e)
+	const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+		e.stopPropagation();
+		if (props.onClick) {
+			props.onClick(e);
 		}
-	}
+	};
 	return (
 		<button
 			{...props}

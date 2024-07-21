@@ -11,7 +11,12 @@ interface Props {
 
 export const Card: FC<Props> = ({ children, className, onClick }) => {
 	return (
-		<Surface onClick={onClick} className={classNames(styles.cardContainer, className, {[styles.clickable]: onClick !== undefined})}>
+		<Surface
+			onClick={onClick}
+			className={classNames(styles.cardContainer, className, {
+				[styles.clickable]: onClick !== undefined,
+			})}
+		>
 			{children}
 		</Surface>
 	);
