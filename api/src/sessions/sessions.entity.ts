@@ -1,7 +1,9 @@
+import { Booking } from 'src/bookings/bookings.entity';
 import {
     Entity,
     Column,
     PrimaryGeneratedColumn,
+    OneToMany,
 } from 'typeorm';
   
 @Entity()
@@ -23,4 +25,7 @@ export class Session {
 
     @Column()
     minNbParticipants: number
+
+    @OneToMany(() => Booking, (booking) => booking.session)
+    bookings: Booking[]
 }

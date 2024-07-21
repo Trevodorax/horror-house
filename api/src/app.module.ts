@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmConfigService } from './config/database.config';
 import { UsersModule } from './users/users.module';
 import { SessionsModule } from './sessions/sessions.module';
+import { BookingsModule } from './bookings/bookings.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { SessionsModule } from './sessions/sessions.module';
     }),
     AuthModule,
     UsersModule,
-    SessionsModule
+    SessionsModule,
+    BookingsModule
   ],
   providers: [AppService, AuthService],
 })
