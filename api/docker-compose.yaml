@@ -1,15 +1,5 @@
 version: '3.8'
 services:
-  app:
-    build: .
-    ports:
-      - ${API_PORT}:3000
-    volumes:
-      - /var/cause-connect-java-app:/home/deploy/cause-connect-java-app
-    depends_on:
-      - mysql
-    stop_grace_period: 3s
-    restart: unless-stopped
   mysql:
     image: mysql
     environment:
@@ -18,7 +8,6 @@ services:
     ports:
       - ${DB_PORT}:3306
     volumes:
-      - mysql_data:/var/lib/mysql
-    restart: unless-stopped
+      - mysql_dev_data:/var/lib/mysql
 volumes:
-  mysql_data: {}
+  mysql_dev_data: {}

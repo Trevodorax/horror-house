@@ -74,7 +74,7 @@ export const Employees = () => {
 								<td>
 									<Text>{user.role}</Text>
 								</td>
-								{isSuperAdmin && (
+								{isSuperAdmin && me.data?.email !== user.email && (
 									<td>
 										<Button
 											className={styles.trashButton}
